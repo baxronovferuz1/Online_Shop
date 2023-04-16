@@ -22,4 +22,9 @@ class UserProfile(models.Model):
     user=models.OneToOneField(User, related_name="users", on_delete=models.CASCADE)
     phone=models.CharField(max_length=25)
     address=models.ManyToManyField(UserInformation, related_name="informations", related_query_name="information")
-    is_verified=models.BooleanField
+    is_verified=models.BooleanField(default=False)
+    verification_uuid=models.UUIDField("Unique Verification UUID", default=uuid.uuid4)
+
+
+    def __str__(self) -> str:
+        return self.user.username
