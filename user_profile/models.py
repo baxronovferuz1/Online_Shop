@@ -20,7 +20,7 @@ class UserInformation(models.Model):
     
 class UserProfile(models.Model):
     user=models.OneToOneField(User, related_name="users", on_delete=models.CASCADE)
-    phone=models.CharField(max_length=25)
+    phone=models.CharField(max_length=14)
     address=models.ManyToManyField(UserInformation, related_name="informations", related_query_name="information")
     is_verified=models.BooleanField(default=False)
     verification_uuid=models.UUIDField("Unique Verification UUID", default=uuid.uuid4)
