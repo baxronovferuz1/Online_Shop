@@ -12,7 +12,10 @@ class SignUpSerializer(serializers.Serializer):
     email=serializers.EmailField()
     phone=serializers.CharField(max_length=14)
     password=serializers.CharField(label="password", min_length=4, max_length=80, style={"input_type":"password"})
+     
 
+    # i'll must work
+    
 
     class Meta:
         model=User
@@ -39,3 +42,30 @@ class AddressesDetail(serializers.ModelSerializer):
     class Meta:
         model=models.UserInformation
         fields=('address', )
+
+
+
+class ShowProfileserializer(serializers.Serializer):
+    user=serializers.SerializerMethodField()
+    email=serializers.SerializerMethodField()
+    phone=serializers.SerializerMethodField()
+
+
+
+    def get_user(self, user):  #i will must work
+        return user.username
+    
+
+    
+    def get_email(self, user):
+        return user.email
+    
+
+    def get_phone(self, user):
+        return user.users.phone
+    
+    class Meta:
+        model=User
+        fields=('user','email','phone','id')
+
+    
