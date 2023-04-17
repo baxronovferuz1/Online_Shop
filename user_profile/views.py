@@ -31,3 +31,9 @@ class UpdateProfileView(ModelViewSet):
 
     def get_queryset(self):
         return User.objects.filter(username=self.request.user.username)
+    
+    serializer={
+        'retrieve':serializers.UpdateProfileSerializer,
+        'update':serializers.UpdateProfileSerializer,
+        'partial_update':serializers.UpdateProfileSerializer,
+    }
