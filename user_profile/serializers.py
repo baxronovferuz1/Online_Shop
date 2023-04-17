@@ -34,3 +34,8 @@ class UpdateProfileSerializer(serializers.Serializer):
     email=serializers.CharField(max_length=60)
 
 
+
+class AddressesDetail(serializers.ModelSerializer):
+    class Meta:
+        model=models.UserInformation
+        fields=('address', )
