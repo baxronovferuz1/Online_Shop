@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from user_profile import models
 
 
+
 class SignUpSerializer(serializers.Serializer):
     email=serializers.EmailField()
     phone=serializers.CharField(max_length=14)
