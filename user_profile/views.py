@@ -7,7 +7,9 @@ from user_profile import serializers , models
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.models import User
 
 
 class UserSignUPAPIView(APIView):
@@ -21,3 +23,11 @@ class UserSignUPAPIView(APIView):
             serializer.save()
             return Response({'message' : 'You are successfuly signup dear {}'}.format(request.data["username"]))
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UpdateProfileView(ModelViewSet):
+
+    permission_classes=[IsAuthenticated]
+
+    def get_queryset(self):
+        return User.objects.filter(username=self.request.user.username)
