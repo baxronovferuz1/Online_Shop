@@ -13,16 +13,7 @@ class SignUpSerializer(serializers.Serializer):
     email=serializers.EmailField()
     phone=serializers.CharField(max_length=14)
     password=serializers.CharField(label="password", min_length=4, max_length=80, style={"input_type":"password"})
-
-
-    def create(self, validated_data):
-        user, _ = User.objects.get_or_create(username = validated_data['username'] , email = validated_data['email'])
-        user.set_password(validated_data['password'])
-
-        user.save()
-        profile, _ = models.UserProfile.objects.get_or_create(user = user , phone = validated_data['phone'])
-
-        return user
+    confirm_password = serializers.CharField(min_length=4, max_length=80, write_only=True)
      
 
     # i'll must work
@@ -30,8 +21,19 @@ class SignUpSerializer(serializers.Serializer):
 
     class Meta:
         model=User
-        fields=("username","email","phone","password")
+        fields=("username","email","phone","password","confirm_password")
         write_only_fields=("password" ,) #fielddan kyn "," qo'yilsa keyin typlega aylanadi
+
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        confirm_password = validated_data.pop('confirm_password')
+        if password != confirm_password:
+            raise serializers.ValidationError("Passwords don't match.")
+        user = User.objects.create(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
 
 
 class UpdateProfileRetrieve(serializers.ModelSerializer):
