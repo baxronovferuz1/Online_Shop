@@ -37,3 +37,7 @@ class UpdateProfileView(ModelViewSet):
         'update':serializers.UpdateProfileSerializer,
         'partial_update':serializers.UpdateProfileSerializer,
     }
+
+
+    def create(self, request):
+        return Response({'message' : 'Please enter you id at the end of your url to update your profile'})
