@@ -41,3 +41,20 @@ class UpdateProfileView(ModelViewSet):
 
     def create(self, request):
         return Response({'message' : 'Please enter you id at the end of your url to update your profile'})
+    
+
+    def update(self,request, *args, **kwargs):
+
+        username = request.data['username']
+        first_name = request.data['first_name']
+        last_name = request.data['last_name']
+        email = request.data['email']
+
+        user_obj = User.objects.get(pk = int(kwargs['pk']))
+        user_obj.username = username
+        user_obj.first_name = first_name
+        user_obj.last_name = last_name
+        user_obj.email = email
+        user_obj.save()
+
+        return Response({'message' : 'Your profile was updated dear {0} {1}'.format(first_name , last_name)}) 
