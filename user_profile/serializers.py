@@ -13,6 +13,16 @@ class SignUpSerializer(serializers.Serializer):
     email=serializers.EmailField()
     phone=serializers.CharField(max_length=14)
     password=serializers.CharField(label="password", min_length=4, max_length=80, style={"input_type":"password"})
+
+
+    def create(self, validated_data):
+        user, _ = User.objects.get_or_create(username = validated_data['username'] , email = validated_data['email'])
+        user.set_password(validated_data['password'])
+
+        user.save()
+        profile, _ = models.UserProfile.objects.get_or_create(user = user , phone = validated_data['phone'])
+
+        return user
      
 
     # i'll must work

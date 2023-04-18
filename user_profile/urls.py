@@ -8,6 +8,6 @@ from user_profile import views
 router = DefaultRouter()
 router.register('update_profile' , views.UpdateProfileView , basename = 'userprofile')
 
-urlpatterns={
+urlpatterns=[
     path("signup/", views.UserSignUPAPIView.as_view())
-}
+]
