@@ -17,14 +17,12 @@ class UserSignUPAPIView(APIView):
 
 
     def post(self, request):
-
-        serializer=serializers.SignUpSerializer(data=request.data)
+            
+        serializer = serializers.SignUpSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            #return Response({'message' : 'You are successfuly signup dear {}'}.format(request.data["username"]))
-            return Response({'message' : 'Your are successfuly singup dear {}'.format(request.data['username'])})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+            return Response({'message' : 'Your are successfuly singup dear {}'.format(request.data['username'])}) 
+        return Response(serializer.errors , status = status.HTTP_400_BAD_REQUEST)
 
 class UpdateProfileView(ModelViewSet):
 
