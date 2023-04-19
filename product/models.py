@@ -47,7 +47,26 @@ class Digital_Product(BaseItem):
                     ('yellow' , 'yellow'))
     
     color=models.CharField(max_length=120, choices=color_choise, null=True)
+    volume=models.SmallIntegerField(null=True, default=0)
+                    
+
+class Household_appliances(BaseItem):
+    color_choise=(('black' , 'black') ,
+                    ('white' , 'white') ,
+                    ('silver' , 'silver') ,
+                    ('blue' , 'blue') ,
+                    ('red' , 'red') ,
+                    ('green' , 'green') ,
+                    ('yellow' , 'yellow'))
     
+    color=models.CharField(max_length=100, choices=color_choise)
+
+
+class Educational(BaseItem):
+
+    recommended_age=models.CharField(max_length=150)
+
+
 
 
     
