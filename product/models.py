@@ -1,3 +1,14 @@
-from django.db import models
+# target for model.py
 
-# Create your models here.
+# 1)BaseItem
+#     category_choise
+
+# -name 
+# -brand
+# -image
+# -category
+# -description
+# -quantity
+# -created_data
+
+
