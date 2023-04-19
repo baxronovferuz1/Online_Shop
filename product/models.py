@@ -33,6 +33,21 @@ class BaseItem(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+
+#class >Digital_Product,household appliances,Educational
+
+class Digital_Product(BaseItem):
+    color_choise=(('black' , 'black') ,
+                    ('white' , 'white') ,
+                    ('silver' , 'silver') ,
+                    ('blue' , 'blue') ,
+                    ('red' , 'red') ,
+                    ('green' , 'green') ,
+                    ('yellow' , 'yellow'))
+    
+    color=models.CharField(max_length=120, choices=color_choise, null=True)
+    
 
 
     
