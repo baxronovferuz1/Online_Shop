@@ -11,7 +11,7 @@ from user_profile import models
 
 class SignUpSerializer(serializers.Serializer):
     email=serializers.EmailField()
-    phone=serializers.CharField(max_length=14)
+    #phone=serializers.CharField(max_length=14)
     password=serializers.CharField(label="password", min_length=4, max_length=80, style={"input_type":"password"})
     confirm_password = serializers.CharField(min_length=4, max_length=80, write_only=True)
      
@@ -21,7 +21,7 @@ class SignUpSerializer(serializers.Serializer):
 
     class Meta:
         model=User
-        fields=("username","email","phone","password","confirm_password")
+        fields=("username","email","password","confirm_password")
         write_only_fields=("password" ,) #fielddan kyn "," qo'yilsa keyin typlega aylanadi
 
 
