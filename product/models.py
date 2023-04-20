@@ -67,6 +67,19 @@ class Educational(BaseItem):
     recommended_age=models.CharField(max_length=150)
 
 
+class Computer(Digital_Product):
+
+
+
+
+class Mobile(Digital_Product):
+
+
+
+
+class Television
+
+
 
 
     
