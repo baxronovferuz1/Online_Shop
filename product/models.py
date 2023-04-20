@@ -68,6 +68,13 @@ class Educational(BaseItem):
 
 
 class Computer(Digital_Product):
+    screen_size = models.CharField(max_length = 100)
+    touch_screen_display = models.BooleanField()
+    graphics_card = models.BooleanField()
+
+    def __str__(self):
+        return self.name
+
     
 
 
