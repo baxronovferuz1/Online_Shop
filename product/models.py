@@ -122,5 +122,14 @@ class Book(Educational):
 
 
 
+class Stationery(Educational): #konstavardagi mahsulotlar
+
+
+    product_choice=(
+        ("pen","Pen"),
+        ("pencil","pencil")
+        
+    
+
 
     
