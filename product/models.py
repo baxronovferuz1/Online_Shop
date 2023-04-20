@@ -68,6 +68,7 @@ class Educational(BaseItem):
 
 
 class Computer(Digital_Product):
+    
 
 
 
@@ -77,7 +78,13 @@ class Mobile(Digital_Product):
 
 
 
-class Television
+class Television(Household_appliances):
+    decision=models.CharField(max_length=200)
+    size=models.CharField(max_length=20)
+
+    def __str__(self) -> str:
+        return self.name
+
 
 
 
