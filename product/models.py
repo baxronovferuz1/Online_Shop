@@ -88,9 +88,13 @@ class Mobile(Digital_Product):
         ("vivo","Vivo"))
     
 
-    
+
 
     type_choice=models.CharField(max_length=50, choices=model_choice)
+
+
+    def __str__(self) -> str:
+        return self.name
 
 
 
@@ -100,7 +104,21 @@ class Television(Household_appliances):
 
     def __str__(self) -> str:
         return self.name
+    
 
+
+class Book(Educational):
+    language_choice=(
+        ("russian","Russian"),
+        ("english","English"))
+    
+    language=models.CharField(max_length=40, choices=language_choice)
+    author=models.CharField(max_length=250)
+    publisher=models.CharField(max_length=250) #qaysi nashriyotdan ekanligi
+
+
+    def __str__(self) -> str:
+        return self.name
 
 
 
