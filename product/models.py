@@ -78,10 +78,19 @@ class Computer(Digital_Product):
     
 
 
-
-
 class Mobile(Digital_Product):
 
+    model_choice=(
+        ("redmi","Redmi"),
+        ("samsung","Samsung"),
+        ("apple","Apple"),
+        ("nokia","Nokia"),
+        ("vivo","Vivo"))
+    
+
+    
+
+    type_choice=models.CharField(max_length=50, choices=model_choice)
 
 
 
