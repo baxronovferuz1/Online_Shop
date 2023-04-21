@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'flags',
     'rest_framework',
     'product',
+    'Pillow'
 ]
 
 MIDDLEWARE = [
