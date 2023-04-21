@@ -127,7 +127,8 @@ class Stationery(Educational): #konstavardagi mahsulotlar
 
     product_choice=(
         ("pen","Pen"),
-        ("pencil","pencil")
+        ("pencil","Pencil"),
+        ("notebook","Notebook"))
         
     
 
