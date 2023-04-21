@@ -27,6 +27,7 @@ class BaseItem(models.Model):
     image=models.ImageField(upload_to="Pictutes", null=True, blank=True)
     category=models.CharField(max_length=100, choices=category_choise)
     description=models.TextField()
+    slug = models.SlugField(unique = True , null = True)
     price=models.IntegerField()
     quantity=models.IntegerField()
     created_data=models.DateField(null=True, blank=True)
