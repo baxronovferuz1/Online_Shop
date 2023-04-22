@@ -18,13 +18,13 @@ class ShowTelevisions(ReadOnlyModelViewSet):
     filter_backends = (filters.SearchFilter , )
     search_fields = ('name' , 'brand' , 'category')
 
-    serialzers = {
+    serializers = {
         'list' : TelevisionListSerializer ,
         'retrieve' : TelevisionDetailSerilizer
     }
 
     def get_serializer_class(self):
-        return self.serialzers.get(self.action)
+        return self.serializers.get(self.action)
     
 
 
@@ -38,13 +38,13 @@ class ShowComputer(ReadOnlyModelViewSet):
     filter_backends = (filters.SearchFilter , )
     search_fields = ('name' , 'brand' , 'category')
 
-    serialzers = {
+    serializers = {
         'list' : ComputerListSerializer,
         'retrieve' : ComputerDetailserializer
     }
 
     def get_serializer_class(self):
-        return self.serialzers.get(self.action)
+        return self.serializers.get(self.action)
     
 
 class ShowMobile(ReadOnlyModelViewSet):
@@ -57,13 +57,13 @@ class ShowMobile(ReadOnlyModelViewSet):
     filter_backends = (filters.SearchFilter , )
     search_fields = ('name' , 'brand' , 'category')
 
-    serialzers = {
+    serializers = {
         'list' : MobileListSerializer,
         'retrieve' : MobileDetailSerializer
     }
 
     def get_serializer_class(self):
-        return self.serialzers.get(self.action)
+        return self.serializers.get(self.action)
     
 
 
@@ -77,13 +77,14 @@ class ShowBook(ReadOnlyModelViewSet):
     filter_backends = (filters.SearchFilter , )
     search_fields = ('name' , 'brand' , 'category')
 
-    serialzers = {
+    serializers = {
         'list' : BookListSerializer,
         'retrieve' : BookDetailSerializer
     }
 
     def get_serializer_class(self):
-        return self.serialzers.get(self.action)
+        return self.serializers.get(self.action)
+    
     
 class ShowStationery(HyperlinkedModelSerializer):
     queryset=Stationery.objects.all()
@@ -98,6 +99,11 @@ class ShowStationery(HyperlinkedModelSerializer):
         'list': StationeryListSerializer,
         'retrieve':StationeryDetailSerializer
     }
+
+    def get_serializer_class(self):
+        return self.serializers.get(self.action)
+    
+    
 
 
     
