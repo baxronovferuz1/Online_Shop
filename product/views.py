@@ -28,6 +28,7 @@ class ShowTelevisions(ReadOnlyModelViewSet):
     
 
 
+
 class ShowComputer(ReadOnlyModelViewSet):
 
     queryset = Computer.objects.all()
@@ -38,9 +39,65 @@ class ShowComputer(ReadOnlyModelViewSet):
     search_fields = ('name' , 'brand' , 'category')
 
     serialzers = {
-        'list' : Com,
-        'retrieve' : TelevisionDetailSerilizer
+        'list' : ComputerListSerializer,
+        'retrieve' : ComputerDetailserializer
     }
 
     def get_serializer_class(self):
         return self.serialzers.get(self.action)
+    
+
+class ShowMobile(ReadOnlyModelViewSet):
+
+
+    queryset = Mobile.objects.all()
+
+    lookup_field = 'slug'
+
+    filter_backends = (filters.SearchFilter , )
+    search_fields = ('name' , 'brand' , 'category')
+
+    serialzers = {
+        'list' : MobileListSerializer,
+        'retrieve' : MobileDetailSerializer
+    }
+
+    def get_serializer_class(self):
+        return self.serialzers.get(self.action)
+    
+
+
+class ShowBook(ReadOnlyModelViewSet):
+
+
+    queryset = Book.objects.all()
+
+    lookup_field = 'slug'
+
+    filter_backends = (filters.SearchFilter , )
+    search_fields = ('name' , 'brand' , 'category')
+
+    serialzers = {
+        'list' : BookListSerializer,
+        'retrieve' : BookDetailSerializer
+    }
+
+    def get_serializer_class(self):
+        return self.serialzers.get(self.action)
+    
+class ShowStationery(HyperlinkedModelSerializer):
+    queryset=Stationery.objects.all()
+
+    lookup_field='slug'
+
+    filter_backends=(filters.SearchFilter ,)
+
+    search_fields=('name','brand','category')
+
+    serializers={
+        'list': StationeryListSerializer,
+        'retrieve':StationeryDetailSerializer
+    }
+
+
+    
