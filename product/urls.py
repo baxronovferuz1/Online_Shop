@@ -9,11 +9,11 @@ router.register("TV", ShowTelevisions, basename="tv")
 router.register("Book", ShowBook, basename="book")
 router.register("Computer", ShowComputer, basename="computer")
 router.register("Mobile", ShowMobile, basename="mobile")
-router.register("Stationery", Stationery, basename="stationery")
+router.register("Stationery", ShowStationery, basename="stationery")
 
 
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]

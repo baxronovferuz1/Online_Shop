@@ -86,7 +86,7 @@ class ShowBook(ReadOnlyModelViewSet):
         return self.serializers.get(self.action)
     
     
-class ShowStationery(HyperlinkedModelSerializer):
+class ShowStationery(ReadOnlyModelViewSet):
     queryset=Stationery.objects.all()
 
     lookup_field='slug'
@@ -103,7 +103,7 @@ class ShowStationery(HyperlinkedModelSerializer):
     def get_serializer_class(self):
         return self.serializers.get(self.action)
     
-    
+
 
 
     
