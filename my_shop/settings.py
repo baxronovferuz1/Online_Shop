@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'flags',
     'rest_framework',
     'product',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
