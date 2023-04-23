@@ -6,6 +6,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet , ModelViewSet , ViewSe
 from .models import Television,Computer,Book,Stationery,Mobile
 from .serializers import *
 from rest_framework import filters
+from rest_framework.decorators import action
 
 
 
