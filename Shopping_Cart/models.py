@@ -22,11 +22,11 @@ class Shopping_Cart(models.Model):
     item=models.ForeignKey(BaseItem, on_delete=models.CASCADE, null=True)
     quantity=models.IntegerField(max_length=500)
     status=models.CharField(max_length=100, choices=status_choice, null=True)
-    #product = models.ForeignKey(BaseItem, on_delete=models.CASCADE)
+    product = models.ForeignKey(BaseItem, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.item.name
 
 
-    # def total_price(self):
-    #     return self.quantity * self.product.price
+    def total_price(self):
+        return self.quantity * self.product.price
