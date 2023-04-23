@@ -8,9 +8,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title='Twitter API',
+        title='Online Shop',
         default_version='v1',
-        description='Twitter clone',
+        description='Online_shopping',
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -25,6 +25,6 @@ urlpatterns = [
     ),
     path(
         "docs2/", schema_view.with_ui("redoc", cache_timeout=0), name="docs2"
-    )
+    ),
     
 ]
