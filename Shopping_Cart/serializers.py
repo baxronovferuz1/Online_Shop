@@ -1,7 +1,7 @@
 # target for serializers.py
 
 # 1)create ShoppingCartSerializer
-# 2)
+# 2)/itemDetail
 
 
 from rest_framework import serializers
@@ -25,3 +25,9 @@ class ShoppingCartSerializer(serializers.Serializer):
 
     def user_id_func(self, obj):
         return obj.id
+    
+
+class ItemDetail(serializers.ModelSerializer):
+    class Meta:
+        model=BaseItem
+        fields=("name","brand","category","price")
