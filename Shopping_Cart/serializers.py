@@ -2,6 +2,8 @@
 
 # 1)create ShoppingCartSerializer
 # 2)/itemDetail
+# 3)Iteminorderlist
+# 4)iteminorderDetail
 
 
 from rest_framework import serializers
@@ -31,3 +33,6 @@ class ItemDetail(serializers.ModelSerializer):
     class Meta:
         model=BaseItem
         fields=("name","brand","category","price")
+
+
+class ItemInOrderList(serializers.HyperlinkedModelSerializer):
