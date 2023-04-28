@@ -36,3 +36,4 @@ class ItemDetail(serializers.ModelSerializer):
 
 
 class ItemInOrderList(serializers.HyperlinkedModelSerializer):
+    
