@@ -63,6 +63,13 @@ class Confirmation(serializers.ModelSerializer):
 
     status=serializers.ChoiceField(choices=order_choice)
 
+
+class Go_To_Confirmation_Step(serializers.ModelSerializer):
+
+    visit_choices=(
+        ("action","I want to take an action")
+    )
     
+    order=serializers.ChoiceField(choices=visit_choices)
 
     
