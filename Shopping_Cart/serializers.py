@@ -36,4 +36,13 @@ class ItemDetail(serializers.ModelSerializer):
 
 
 class ItemInOrderList(serializers.HyperlinkedModelSerializer):
+    detail=serializers.HyperlinkedIdentityField(view_name="MyOrder-Detail" ,)
+
+    class Meta:
+        model=Shopping_Cart
+        fields=("detail")
+
+
+    
+
     
