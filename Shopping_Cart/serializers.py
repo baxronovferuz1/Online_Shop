@@ -42,6 +42,13 @@ class ItemInOrderList(serializers.HyperlinkedModelSerializer):
         model=Shopping_Cart
         fields=("detail")
 
+class ItemInOrderDetail(serializers.DjangoModelField):
+    item=ItemDetail(many=True)
+
+    class Meta:
+        model=Shopping_Cart
+        fields=("item","quantity",)
+
 
     
 
