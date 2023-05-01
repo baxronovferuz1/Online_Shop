@@ -61,6 +61,7 @@ class Confirmation(serializers.ModelSerializer):
         ("reject","I reject it, I want to something")
     )
 
+    status=serializers.ChoiceField(choices=order_choice)
 
     
 
