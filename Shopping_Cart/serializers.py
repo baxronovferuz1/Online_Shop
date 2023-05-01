@@ -5,6 +5,8 @@
 # 3)Iteminorderlist
 # 4)iteminorderDetail
 
+#5)Confirmation
+
 
 from rest_framework import serializers
 import user_profile
@@ -48,6 +50,16 @@ class ItemInOrderDetail(serializers.DjangoModelField):
     class Meta:
         model=Shopping_Cart
         fields=("item","quantity",)
+
+
+
+
+class Confirmation(serializers.ModelSerializer):
+
+    order_choice=(
+        ("accept","I accept it, go to payment"),
+        ("reject","I reject it, I want to something")
+    )
 
 
     
