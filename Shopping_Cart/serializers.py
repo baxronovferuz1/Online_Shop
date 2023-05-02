@@ -72,4 +72,10 @@ class Go_To_Confirmation_Step(serializers.ModelSerializer):
     
     order=serializers.ChoiceField(choices=visit_choices)
 
-    
+
+
+class Pay_for_Itme(serializers.ModelSerializer):
+    item=ItemDetail(many=True)
+    class Meta:
+        model=Shopping_Cart
+        fields=("item","quantity")
