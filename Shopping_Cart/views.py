@@ -8,6 +8,7 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from .models import Shopping_Cart
+from .serializers import ShoppingCartSerializer
 
 
 class My_Cart(ModelViewSet):
@@ -16,3 +17,5 @@ class My_Cart(ModelViewSet):
 
     def get_queryset(self):
         return Shopping_Cart.objects.filter(user=self.request.user, status="on_cart")
+    
+    serializer_class=ShoppingCartSerializer
