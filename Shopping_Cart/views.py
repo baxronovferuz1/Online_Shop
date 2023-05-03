@@ -34,10 +34,22 @@ class My_Orders(ModelViewSet):
         'create':Go_To_Confirmation_Step,
         'update':Confirmation,
     }
+
     
     def get_serializer_class(self):
         return self.serializer.get(self.action)
     
+
     
     def create(self, request, *args, **kwargs):
         return Response("Tasdiqlash yoki rad etish uchun birorta bo'limni tanlang")
+    
+
+
+    def update(self, request, *args, **kwargs):
+        if request.data["status"]=="accept":
+            obj=Shopping_Cart.objects.get(pk=int(kwargs["pk"]))
+            obj.status="ready_to_payment"
+            obj.save()
+    
+
