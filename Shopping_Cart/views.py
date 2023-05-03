@@ -34,3 +34,5 @@ class My_Orders(ModelViewSet):
         'update':Confirmation,
     }
     
+    def get_serializer_class(self):
+        return self.serializer.get(self.action)
