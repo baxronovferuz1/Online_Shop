@@ -47,9 +47,16 @@ class My_Orders(ModelViewSet):
 
 
     def update(self, request, *args, **kwargs):
+
         if request.data["status"]=="accept":
             obj=Shopping_Cart.objects.get(pk=int(kwargs["pk"]))
             obj.status="ready_to_payment"
             obj.save()
+            return Response({"message":"Hurmatli mijoz mahsulot tasdiqlandi va to'lov olinadi"})
+        
     
-
+        else:
+            obj=Shopping_Cart.objects.get(pk=int(kwargs["pk"]))
+            obj.status="on_cart"
+            obj.save()
+            return Response({"message":"Javobingiz qabul qilindi"})
