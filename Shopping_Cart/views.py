@@ -66,4 +66,7 @@ class Payment(ModelViewSet):
 
     permission_classes=[IsAuthenticated]
 
+    def get_queryset(self):
+        return Shopping_Cart.filter(user=self.request.user, status="ready_to_payment")
+
 
