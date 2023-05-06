@@ -60,3 +60,10 @@ class My_Orders(ModelViewSet):
             obj.status="on_cart"
             obj.save()
             return Response({"message":"Javobingiz qabul qilindi"})
+        
+
+class Payment(ModelViewSet):
+
+    permission_classes=[IsAuthenticated]
+
+
