@@ -74,7 +74,7 @@ class Go_To_Confirmation_Step(serializers.ModelSerializer):
 
 
 
-class Pay_for_Itme(serializers.ModelSerializer):
+class Pay_for_Item(serializers.ModelSerializer):
     item=ItemDetail(many=True)
     class Meta:
         model=Shopping_Cart

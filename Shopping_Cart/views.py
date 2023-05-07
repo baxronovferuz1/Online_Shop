@@ -69,6 +69,16 @@ class Payment(ModelViewSet):
     def get_queryset(self):
         return Shopping_Cart.objects.filter(user=self.request.user, status="ready_to_payment")
     
+
+
+    serializer={
+        "list" : serializers.Pay_For_Item
+    }
+
+    def create(self, request, *args, **kwargs):
+        if request.data["status"]=="accept":
+            ordered_item=Shopping_Cart.objects.filter(user=self.request.user, status="ready_to_payed")
+    
     
 
 
