@@ -78,7 +78,13 @@ class Payment(ModelViewSet):
     def create(self, request, *args, **kwargs):
         if request.data["status"]=="accept":
             ordered_item=Shopping_Cart.objects.filter(user=self.request.user, status="ready_to_payed")
-    
+            for ordered in ordered_item:
+                ordered.status=""
+                ordered.item.quantity-=ordered.quantity
+                ordered.item.save()
+                ordered.save()
+                
+
     
 
 
