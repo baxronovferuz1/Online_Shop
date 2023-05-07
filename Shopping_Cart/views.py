@@ -29,7 +29,7 @@ class My_Orders(ModelViewSet):
     def get_queryset(self):
         return Shopping_Cart.objects.filter(user=self.request.user, status="on_cart")
     
-    serializer={
+    serializers={
         'list':ItemInOrderList,
         'retrieve':ItemInOrderDetail,
         'create':Go_To_Confirmation_Step,
@@ -72,7 +72,7 @@ class Payment(ModelViewSet):
     
 
 
-    serializer={
+    serializers={
         "list" : serializers.Pay_For_Item
     }
 
@@ -92,6 +92,6 @@ class Payment(ModelViewSet):
             return Response({"message":"Tolov bekor qilindi"})
         
 
-    
-
-
+     
+    def get_serializer_class(self):
+        return self.serializers.get(self.action)
