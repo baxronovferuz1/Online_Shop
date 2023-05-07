@@ -10,6 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Shopping_Cart
 from .serializers import *
 from rest_framework.response import Response
+from user_profile.models import UserInformation,UserProfile
 
 
 class My_Cart(ModelViewSet):
@@ -83,7 +84,13 @@ class Payment(ModelViewSet):
                 ordered.item.quantity-=ordered.quantity
                 ordered.item.save()
                 ordered.save()
-                
+                profile=UserProfile.objects.filter(user=self.request.user)
+                address=UserInformation.objects.get(user=self.request.data["address"])
+            return Response({"message":"Hurmatli mijoz, to'lovingiz muvaffaqiyatli yakunlandi"})
+       
+        else:
+            return Response({"message":"Tolov bekor qilindi"})
+        
 
     
 
