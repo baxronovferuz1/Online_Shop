@@ -10,5 +10,5 @@ router.register("my_orders", My_Orders, basename="My_Orders")
 router.register("payment", Payment, basename="Payment")
 
 urlpattern={
-    path("finance/", include(router.urls)),
+    path("", include(router.urls)),
 }
