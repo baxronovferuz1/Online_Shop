@@ -20,7 +20,7 @@ class Shopping_Cart(models.Model):
 
     user=models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     item=models.ForeignKey(BaseItem, on_delete=models.CASCADE, null=True)
-    quantity=models.IntegerField(max_length=500)
+    quantity=models.IntegerField()
     status=models.CharField(max_length=100, choices=status_choice, null=True)
     #product = models.ForeignKey(BaseItem, on_delete=models.CASCADE)
 

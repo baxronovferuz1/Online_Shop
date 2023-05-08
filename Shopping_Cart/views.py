@@ -73,7 +73,7 @@ class Payment(ModelViewSet):
 
 
     serializers={
-        "list" : serializers.Pay_For_Item
+        "list" : Pay_for_Item
     }
 
     def create(self, request, *args, **kwargs):
