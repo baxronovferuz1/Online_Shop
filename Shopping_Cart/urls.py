@@ -9,6 +9,6 @@ router.register("my_cart", My_Cart, basename="My_Cart")
 router.register("my_orders", My_Orders, basename="My_Orders")
 router.register("payment", Payment, basename="Payment")
 
-urlpatterns={
+urlpatterns=[
     path("finance/", include(router.urls)),
-}
+]
