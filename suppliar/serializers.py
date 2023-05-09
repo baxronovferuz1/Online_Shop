@@ -1,6 +1,6 @@
-target
-1)profile detail class
-2)Factor detail class 
+# target
+# 1)profile detail class
+# 2)Factor detail class 
 
 
 
@@ -9,6 +9,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User 
 from user_profile.models import UserProfile
 from Shopping_Cart.models import Shopping_Cart
+from .models import Suppliar_Check
 
 
 
@@ -54,4 +55,24 @@ class CheckOrdersDetail(serializers.ModelSerializer):
 
     status=serializers.ChoiceField(choices=status_choices)
 
+
+class Suppliar_Factor(serializers.ModelSerializer):
+    address=serializers.SerializerMethodField()
+    email=serializers.SerializerMethodField()
+    username=serializers.SerializerMethodField()
+    factor=FactorDetail
+
+
+    def get_address(self, suppliar):
+        return suppliar.address.address
+    
+    def get_email(self, suppliar):
+        return suppliar.recipient.email
+    
+    def get_username(self,suppliar):
+        return suppliar.recipient.username
+    
+    class Meta:
+        model=Suppliar_Check
+        fields=("username","address","email","factor","phone")
   
