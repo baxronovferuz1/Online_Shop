@@ -1,5 +1,6 @@
 target
 1)profile detail class
+2)Factor detail class 
 
 
 
@@ -25,3 +26,14 @@ class ProfileDetail(serializers.ModelSerializer):
     class Meta:
         models=UserProfile
         fields=("username","email","phone","address")
+
+
+class FactorDetail(serializers.ModelSerializer):
+    item=serializers.SerializerMethodField()
+    quantity=serializers.SerializerMethodField()
+
+    def get_item(self, sh_cart):
+        return sh_cart.item.name
+    
+    def get_quantity(self, sh_cart):
+        return sh_cart.quantity
