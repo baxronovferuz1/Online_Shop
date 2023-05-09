@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'product',
     'drf_yasg',
     'Shopping_Cart',
+    'suppliar'
 ]
 
 MIDDLEWARE = [
