@@ -43,3 +43,15 @@ class FactorDetail(serializers.ModelSerializer):
     class Meta:
         model=Shopping_Cart
         fields=("item",'quantity')
+
+
+class CheckOrdersDetail(serializers.ModelSerializer):
+
+    status_choices=(
+        ("ready","ready"),
+        ("on_process","on_process"),
+    )
+
+    status=serializers.ChoiceField(choices=status_choices)
+
+  
