@@ -8,6 +8,7 @@ target
 from rest_framework import serializers
 from django.contrib.auth.models import User 
 from user_profile.models import UserProfile
+from Shopping_Cart.models import Shopping_Cart
 
 
 
@@ -24,7 +25,7 @@ class ProfileDetail(serializers.ModelSerializer):
         return profile.user.emial
     
     class Meta:
-        models=UserProfile
+        model=UserProfile
         fields=("username","email","phone","address")
 
 
@@ -37,3 +38,8 @@ class FactorDetail(serializers.ModelSerializer):
     
     def get_quantity(self, sh_cart):
         return sh_cart.quantity
+    
+
+    class Meta:
+        model=Shopping_Cart
+        fields=("item",'quantity')
