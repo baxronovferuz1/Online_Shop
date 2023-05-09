@@ -1,12 +1,10 @@
 from django.urls import path , include
-
 from rest_framework.routers import DefaultRouter
-
-from suppliar import views
+from .views import Factor
 
 router = DefaultRouter()
-router.register('Factors' , views.Factor , basename = 'factor')
+router.register('Factors', Factor, basename ='factor')
 
-urlpatterns = [
-    path('suppliar/' , include(router.urls)),
+urlpatterns=[
+    path('suppliar/', include(router.urls)),
 ]
