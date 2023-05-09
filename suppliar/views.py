@@ -5,6 +5,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAdminUser
 from .models import Suppliar_Check
 from .serializers import Suppliar_Factor,CheckOrdersDetail
+from rest_framework.response import Response
 
 class Factor(ModelViewSet):
     permission_classes=[IsAdminUser]
@@ -16,5 +17,12 @@ class Factor(ModelViewSet):
         else:
             return CheckOrdersDetail
         
-    
+    def create(self, request, *args, **kwargs):
+        if request.data["status"]==["ready"]:
+            no_sended_factor=self.queryset
+            for i in no_sended_factor:
+                i.status="ready"
+                i.save()
+            return Response({"message":"All factors sent to contributed par"})
+
 
