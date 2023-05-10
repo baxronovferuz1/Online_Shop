@@ -6,6 +6,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from user_profile import models
+from suppliar.serializers import FactorDetail
+from suppliar.models import Suppliar_Check
 
 
 
@@ -81,3 +83,22 @@ class ShowProfileserializer(serializers.Serializer):
         fields=('user','email','phone','id')
 
     
+class MyPaymentedItemSerializer(serializers.ModelSerializer):
+
+    address = serializers.SerializerMethodField()
+    username = serializers.SerializerMethodField()
+    email = serializers.SerializerMethodField()
+    factor = FactorDetail()
+
+    def get_username(self , suppliar):
+        return suppliar.reciever.username
+
+    def get_email(self , suppliar):
+        return suppliar.reciever.email 
+
+    def get_address(self , suppliar):
+        return suppliar.address.address    
+
+    class Meta:
+        model = Suppliar_Check
+        fields = ('username' , 'email' , 'phone' , 'address' , 'factor')
