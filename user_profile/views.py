@@ -10,6 +10,9 @@ from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
+from Shopping_Cart.models import *
+from Shopping_Cart.serializers import *
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
 
 class UserSignUPAPIView(APIView):
@@ -57,3 +60,19 @@ class UpdateProfileView(ModelViewSet):
         user_obj.save()
 
         return Response({'message' : 'Your profile was updated dear {0} {1}'.format(first_name , last_name)}) 
+
+
+class ShowMyShoppingCartView(ReadOnlyModelViewSet):
+
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        return Shopping_Cart.objects.filter(user = self.request.user , status = 'on_cart')
+
+    serializer = {
+        'list' : ShoppingCartSerializer,
+        'retrieve' : ItemInOrderDetail
+    }  
+
+    def get_serializer_class(self):
+        return self.serializer.get(self.action)
