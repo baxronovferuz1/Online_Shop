@@ -21,6 +21,7 @@ urlpatterns = [
     path('', include('user_profile.urls')),
     path('' , include('product.urls')),
     path('', include('Shopping_Cart.urls')),
+    path('', include('suppliar.urls')),
     path(
         "docs/", schema_view.with_ui("swagger", cache_timeout=0), name="docs"
     ),
