@@ -12,7 +12,7 @@ from user_profile import models
 class SignUpSerializer(serializers.Serializer):
     email=serializers.EmailField()
     #phone=serializers.CharField(max_length=14)
-    password=serializers.CharField(label="password", min_length=4, max_length=80, style={"input_type":"password"})
+    password=serializers.CharField(label="password", min_length=4, max_length=80)
     confirm_password = serializers.CharField(min_length=4, max_length=80, write_only=True)
      
 
