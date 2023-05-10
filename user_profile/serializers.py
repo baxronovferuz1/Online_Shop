@@ -83,22 +83,22 @@ class ShowProfileserializer(serializers.Serializer):
         fields=('user','email','phone','id')
 
     
-class MyPaymentedItemSerializer(serializers.ModelSerializer):
+# class MyPaymentedItemSerializer(serializers.ModelSerializer):
 
-    address = serializers.SerializerMethodField()
-    username = serializers.SerializerMethodField()
-    email = serializers.SerializerMethodField()
-    factor = FactorDetail()
+#     address = serializers.SerializerMethodField()
+#     username = serializers.SerializerMethodField()
+#     email = serializers.SerializerMethodField()
+#     factor = FactorDetail()
 
-    def get_username(self , suppliar):
-        return suppliar.reciever.username
+#     def get_username(self , suppliar):
+#         return suppliar.reciever.username
 
-    def get_email(self , suppliar):
-        return suppliar.reciever.email 
+#     def get_email(self , suppliar):
+#         return suppliar.reciever.email 
 
-    def get_address(self , suppliar):
-        return suppliar.address.address    
+#     def get_address(self , suppliar):
+#         return suppliar.address.address    
 
-    class Meta:
-        model = Suppliar_Check
-        fields = ('username' , 'email' , 'phone' , 'address' , 'factor')
+#     class Meta:
+#         model = Suppliar_Check
+#         fields = ('username' , 'email' , 'phone' , 'address' , 'factor')

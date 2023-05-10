@@ -22,7 +22,7 @@ class UserSignUPAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response({'message' : 'Your are successfuly singup dear {}'.format(request.data['username'])}) 
-        return Response(serializer.errors , status = status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors , status = status.HTTP_400_BAD_REQUEST) #elseni o'rniga
 
 class UpdateProfileView(ModelViewSet):
 
