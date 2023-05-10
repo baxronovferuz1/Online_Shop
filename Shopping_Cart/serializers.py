@@ -30,6 +30,38 @@ class ShoppingCartSerializer(serializers.Serializer):
     def user_id_func(self, obj):
         return obj.id
     
+    def create(self , validated_data):
+
+        user = self.context['request'].user
+        item = validated_data['item']
+        quantity = validated_data['quantity']
+
+        if item.quantity >= quantity:
+            user_good = Shopping_Cart.objects.filter(user = user , item = item , status = 'on_cart')
+            if len(user_good) == 0:
+                user_good = Shopping_Cart.objects.create(user = user , item = item ,  quantity = quantity , status = 'on_cart')
+                user_good.save()
+
+            else:
+                user_good = user_good[0]
+                user_good.quantity += quantity
+                user_good.save()
+
+            return user_good
+
+        else:
+            raise serializers.ValidationError("There isn't sufficient quantity for this item")
+
+    def update(self , instance , validated_data):
+
+        item = validated_data['item']
+        quantity = validated_data['quantity']
+
+        Shopping_Cart.objects.filter(pk = instance.id).update(item = item , quantity = quantity)
+
+        obj = Shopping_Cart.objects.get(pk = instance.id)
+        return obj
+    
 
 class ItemDetail(serializers.ModelSerializer):
     class Meta:
