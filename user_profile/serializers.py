@@ -17,12 +17,6 @@ class SignUpSerializer(serializers.Serializer):
      
 
     # i'll must work
-    
-
-    class Meta:
-        model=User
-        fields=("username","email","password","confirm_password")
-        write_only_fields=("password" ,) #fielddan kyn "," qo'yilsa keyin typlega aylanadi
 
 
     def create(self, validated_data):
@@ -34,6 +28,11 @@ class SignUpSerializer(serializers.Serializer):
         user.set_password(password)
         user.save()
         return user
+    
+    class Meta:
+        model=User
+        fields=("username","email","password","confirm_password")
+        write_only_fields=("password" ,) #fielddan kyn "," qo'yilsa keyin typlega aylanadi
 
 
 class UpdateProfileRetrieve(serializers.ModelSerializer):
