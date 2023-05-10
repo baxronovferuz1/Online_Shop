@@ -3,7 +3,7 @@
 # 2)UpdateProfile
 
 from django.shortcuts import render
-from user_profile import serializers , models
+from user_profile.serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -13,12 +13,12 @@ from django.contrib.auth.models import User
 
 
 class UserSignUPAPIView(APIView):
-    serializer_class=serializers.SignUpSerializer
+    serializer_class=SignUpSerializer
 
 
     def post(self, request):
             
-        serializer = serializers.SignUpSerializer(data = request.data)
+        serializer = SignUpSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message' : 'Your are successfuly singup dear {}'.format(request.data['username'])}) 
@@ -32,9 +32,9 @@ class UpdateProfileView(ModelViewSet):
         return User.objects.filter(username=self.request.user.username)
     
     serializer={
-        'retrieve':serializers.UpdateProfileSerializer,
-        'update':serializers.UpdateProfileSerializer,
-        'partial_update':serializers.UpdateProfileSerializer,
+        'retrieve':UpdateProfileSerializer,
+        'update':UpdateProfileSerializer,
+        'partial_update':UpdateProfileSerializer,
     }
 
 
