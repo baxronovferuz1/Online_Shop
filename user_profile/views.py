@@ -35,15 +35,13 @@ class UpdateProfileView(ModelViewSet):
         return User.objects.filter(username=self.request.user.username)
     
     serializer={
+        'list':ShowProfileserializer,
         'retrieve':UpdateProfileSerializer,
         'update':UpdateProfileSerializer,
-        'partial_update':UpdateProfileSerializer,
     }
-
-
-    def create(self, request):
-        return Response({'message' : 'Please enter you id at the end of your url to update your profile'})
     
+
+
 
     def update(self,request, *args, **kwargs):
 
@@ -60,6 +58,15 @@ class UpdateProfileView(ModelViewSet):
         user_obj.save()
 
         return Response({'message' : 'Your profile was updated dear {0} {1}'.format(first_name , last_name)}) 
+    
+
+    
+
+    
+    def get_serializer_class(self):
+        return self.serializer.get(self.action)
+
+
 
 
 class ShowMyShoppingCartView(ReadOnlyModelViewSet):
