@@ -48,7 +48,6 @@ class Digital_Product(BaseItem):
                     ('yellow' , 'yellow'))
     
     color=models.CharField(max_length=120, choices=color_choise, null=True)
-    volume=models.SmallIntegerField(null=True, default=0)
                     
 
 class Household_appliances(BaseItem):
@@ -70,7 +69,6 @@ class Educational(BaseItem):
 
 class Computer(Digital_Product):
     screen_size = models.CharField(max_length = 100)
-    touch_screen_display = models.BooleanField()
     graphics_card = models.BooleanField()
 
     def __str__(self):
