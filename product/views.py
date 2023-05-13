@@ -19,6 +19,11 @@ class ShowTelevisions(ReadOnlyModelViewSet):
     filter_backends = (filters.SearchFilter , )
     search_fields = ('name' , 'brand' , 'category')
 
+    # SearchFilter--backend foydalanuvchiga search_fields atributida koʻrsatilgan 
+    # maydonlar toʻplami boʻylab qidiruvni amalga oshirishga ruxsat berish orqali qidiruv funksiyasini taʼminlaydi. 
+
+
+
     serializers = {
         'list' : TelevisionListSerializer ,
         'retrieve' : TelevisionDetailSerilizer
