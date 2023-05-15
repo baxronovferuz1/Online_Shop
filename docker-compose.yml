@@ -8,7 +8,7 @@ services:
     ports:
       - "5555:5432"
     volumes:
-      - twitter_db:/var/lib/postgresql/data/
+      - shopping_db:/var/lib/postgresql/data/
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
@@ -32,4 +32,4 @@ services:
       - .:/app
 
 volumes:
-  twitter_db:
+  shopping_db:
