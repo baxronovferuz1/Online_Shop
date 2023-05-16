@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'Shopping_Cart',
     'suppliar',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
