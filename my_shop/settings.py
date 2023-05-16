@@ -43,14 +43,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user_profile',
+    
     'flags',
     'rest_framework',
-    'product',
+    'rest_framework_simplejwt',
     'drf_yasg',
+
+    'product',
     'Shopping_Cart',
     'suppliar',
-    'rest_framework_simplejwt',
+    'user_profile',
+
 ]
 
 MIDDLEWARE = [
