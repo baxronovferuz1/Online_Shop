@@ -31,8 +31,8 @@ class ProfileDetail(serializers.ModelSerializer):
 
 
 class FactorDetail(serializers.ModelSerializer):
-    item=serializers.SerializerMethodField()
-    quantity=serializers.SerializerMethodField()
+    # item=serializers.SerializerMethodField()
+    # quantity=serializers.SerializerMethodField()
 
     def get_item(self, sh_cart):
         return sh_cart.item.name
@@ -43,7 +43,7 @@ class FactorDetail(serializers.ModelSerializer):
 
     class Meta:
         model=Shopping_Cart
-        fields=("item",'quantity')
+        fields=["item",'quantity']
 
 
 class CheckOrdersDetail(serializers.ModelSerializer):
