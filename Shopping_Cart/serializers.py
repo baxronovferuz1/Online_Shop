@@ -51,6 +51,10 @@ class ShoppingCartSerializer(serializers.Serializer):
 
         else:
             raise serializers.ValidationError("There isn't sufficient quantity for this item")
+        
+
+
+        
 
     def update(self , instance , validated_data):
 
@@ -62,6 +66,9 @@ class ShoppingCartSerializer(serializers.Serializer):
         obj = Shopping_Cart.objects.get(pk = instance.id)
         return obj
     
+
+
+
 
 class ItemDetail(serializers.ModelSerializer):
     class Meta:
