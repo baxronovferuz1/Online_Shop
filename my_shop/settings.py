@@ -87,20 +87,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_shop.wsgi.application'
 
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ]
+        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'URL_FIELD_NAME' : 'detail',
 }
-
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timezone.timedelta(days=5),
-    'REFRESH_TOKEN_LIFETIME': timezone.timedelta(days=30),
-}
-
 
 
 # Database

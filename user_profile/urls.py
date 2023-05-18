@@ -13,5 +13,6 @@ router.register("shopping_cart", ShowMyShoppingCartView, basename="myshopping_ca
 
 urlpatterns=[
     path("signup/", UserSignUPAPIView.as_view()),
+    
     path("edit_profile", include(router.urls)),
 ]
