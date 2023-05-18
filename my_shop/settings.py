@@ -14,6 +14,7 @@ from pathlib import Path
 from PIL import Image
 import os
 from django.utils import timezone
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -118,6 +119,13 @@ DATABASES = {
         'PORT': os.environ['DB_PORT'],
     }
 }
+
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_AUTH_COOKIE': 'Authorization',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days = 1),
+}
+
 
 
 # Password validation
