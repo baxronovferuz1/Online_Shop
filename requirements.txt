@@ -7,8 +7,6 @@ coreschema==0.0.4
 Django==4.2.1
 django-flags==5.0.12
 djangorestframework==3.14.0
-djangorestframework-jwt==1.11.0
-djangorestframework-simplejwt==5.2.2
 drf-yasg==1.21.5
 idna==3.4
 inflection==0.5.1
