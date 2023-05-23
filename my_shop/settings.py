@@ -16,6 +16,7 @@ import os
 from django.utils import timezone
 import datetime
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,19 +90,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'my_shop.wsgi.application'
 
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    ],
-
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
-    'URL_FIELD_NAME' : 'detail',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
 }
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timezone.timedelta(days=5),
+    'REFRESH_TOKEN_LIFETIME': timezone.timedelta(days=30),
+}
+
+
 
 
 # Database
@@ -120,11 +123,6 @@ DATABASES = {
     }
 }
 
-JWT_AUTH = {
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_AUTH_COOKIE': 'Authorization',
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days = 1),
-}
 
 
 
