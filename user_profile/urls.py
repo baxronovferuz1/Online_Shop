@@ -1,8 +1,7 @@
 from django.urls import path , include
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 from rest_framework.routers import DefaultRouter
-# from rest_framework_simplejw
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 
 from user_profile.views import *
 
@@ -13,7 +12,7 @@ router.register("shopping_cart", ShowMyShoppingCartView, basename="myshopping_ca
 
 urlpatterns=[
     path("signup/", UserSignUPAPIView.as_view()),
-    path("login/", obtain_jwt_token),
     path("edit_profile", include(router.urls)),
-    path("api-refresh-token/", refresh_jwt_token),
+    path("edit_profile/token/",TokenObtainPairView.as_view(), name="token-obtain-pair"),
+    path("edit_profile/token/refresh/",TokenRefreshView.as_view(), name="token-refresh"),
 ]
