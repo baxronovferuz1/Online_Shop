@@ -34,7 +34,7 @@ SECRET_KEY=os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['ENV']=='dev'
 
-ALLOWED_HOSTS = ['.pythonanywhere.com','192.168.1.155']
+ALLOWED_HOSTS = ['.pythonanywhere.com','192.168.1.155', 'localhost']
 
 
 # Application definition
