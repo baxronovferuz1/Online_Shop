@@ -108,7 +108,8 @@ class Television(Household_appliances):
 class Book(Educational):
     language_choice=(
         ("russian","Russian"),
-        ("english","English"))
+        ("english","English"),
+        ("uzbek","Uzbek"))
     
     language=models.CharField(max_length=40, choices=language_choice)
     author=models.CharField(max_length=250)
