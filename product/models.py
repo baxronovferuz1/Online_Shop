@@ -121,7 +121,7 @@ class Book(Educational):
 
 
 
-class Stationery(Educational): #konstavardagi mahsulotlar
+class Stationery(Educational): 
 
 
     product_choice=(
