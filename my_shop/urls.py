@@ -1,6 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -16,7 +17,14 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
-urlpatterns = [
+urlpatterns=[
+    path('i18n/', include('django.conf.urls.i18n')),
+]
+
+
+
+
+urlpatterns+=i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('user_profile.urls')),
     path('', include('product.urls')),
@@ -29,4 +37,4 @@ urlpatterns = [
         "docs2/", schema_view.with_ui("redoc", cache_timeout=0), name="docs2"
     ),
     
-]
+)

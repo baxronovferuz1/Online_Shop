@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'suppliar',
     'user_profile',
 
+    'modeltranslation'
+
 ]
 
 MIDDLEWARE = [
@@ -156,6 +158,14 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+from django.utils.translation import gettext_lazy
+
+LANGUAGES=(
+    ('uz', gettext_lazy("O'zbek tili")),
+    ('en', gettext_lazy("Engliz tili")),
+    ('ru', gettext_lazy("Rus tili")),
+)
 
 
 LOCALE_PATHS=[
