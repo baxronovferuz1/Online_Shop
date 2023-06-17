@@ -38,7 +38,7 @@ class My_Orders(ModelViewSet):
 
     
     def get_serializer_class(self):
-        return self.serializer.get(self.action)
+        return self.serializers.get(self.action)
     
 
     

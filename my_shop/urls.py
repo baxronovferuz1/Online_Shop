@@ -17,14 +17,15 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
-urlpatterns=[
-    path('i18n/', include('django.conf.urls.i18n')),
-]
+# urlpatterns=[
+#     path('i18n/', include('django.conf.urls.i18n')),
+# ]
 
 
 
 
-urlpatterns+=i18n_patterns(
+# urlpatterns+=i18n_patterns(
+urlpatterns=[   
     path('admin/', admin.site.urls),
     path('', include('user_profile.urls')),
     path('', include('product.urls')),
@@ -37,4 +38,4 @@ urlpatterns+=i18n_patterns(
         "docs2/", schema_view.with_ui("redoc", cache_timeout=0), name="docs2"
     ),
     
-)
+ ]
