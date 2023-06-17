@@ -20,7 +20,7 @@ class ShowTelevisions(ReadOnlyModelViewSet):
     search_fields = ('name' , 'brand' , 'category')
 
     # SearchFilter--backend foydalanuvchiga search_fields atributida koʻrsatilgan 
-    # maydonlar toʻplami boʻylab qidiruvni amalga oshirishga ruxsat berish orqali qidiruv funksiyasini taʼminlaydi. 
+    # maydonlar toʻplami boʻylab qidiruvni taʼminlaydi. 
 
 
 

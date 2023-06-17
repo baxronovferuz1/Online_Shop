@@ -1,7 +1,8 @@
-from modeltranslation.translator import translator, TranslationOptions
-from .models import BaseItem
+# from modeltranslation.translator import translator, TranslationOptions
+# from .models import BaseItem
 
-class BaseItemTranslationOptions(TranslationOptions):
-    fields = '__all__'
+# class BaseItemTranslationOptions(TranslationOptions):
+#     fields = ("name","brand")
 
-translator.register(BaseItem, BaseItemTranslationOptions)
+
+# translator.register(BaseItem, BaseItemTranslationOptions)

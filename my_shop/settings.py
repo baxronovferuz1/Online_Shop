@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'suppliar',
     'user_profile',
 
-    'modeltranslation'
+    # 'modeltranslation'
 
 ]
 
@@ -69,7 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware', #for modeltranslation(hamma xabarni olib tekshiradi)
+    #'django.middleware.locale.LocaleMiddleware', #for modeltranslation(hamma xabarni olib tekshiradi)
 ]
 
 ROOT_URLCONF = 'my_shop.urls'
@@ -151,7 +151,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'uz'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -159,18 +159,18 @@ USE_I18N = True
 
 USE_TZ = True
 
-from django.utils.translation import gettext_lazy
+# from django.utils.translation import gettext_lazy
 
-LANGUAGES=(
-    ('uz', gettext_lazy("O'zbek tili")),
-    ('en', gettext_lazy("Engliz tili")),
-    ('ru', gettext_lazy("Rus tili")),
-)
+# LANGUAGES=(
+#     ('uz', gettext_lazy("O'zbek tili")),
+#     ('en', gettext_lazy("Engliz tili")),
+#     ('ru', gettext_lazy("Rus tili")),
+# )
 
 
-LOCALE_PATHS=[
-    BASE_DIR/'locale'
-]
+# LOCALE_PATHS=[
+#     BASE_DIR/'locale'
+# ]
 
 
 
