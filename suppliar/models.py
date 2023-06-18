@@ -24,7 +24,7 @@ class Suppliar_Check(models.Model):
 
     phone_n=models.CharField(max_length=13)
     status=models.CharField(max_length=20, choices=status_choices)
-    addres=models.ForeignKey(UserInformation, on_delete=models.DO_NOTHING)
+    address=models.ForeignKey(UserInformation, on_delete=models.DO_NOTHING)
     recipient=models.ForeignKey(User, on_delete=models.CASCADE)
     factor=models.ForeignKey(Shopping_Cart, on_delete=models.CASCADE, null=True, blank=True)
 

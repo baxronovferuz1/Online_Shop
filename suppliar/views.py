@@ -19,10 +19,10 @@ class Factor(ModelViewSet):
         
     def create(self, request, *args, **kwargs):
         if request.data["status"]==["ready"]:
-            no_sended_factor=self.queryset
-            for i in no_sended_factor:
+            not_sended_factor=self.queryset
+            for i in not_sended_factor:
                 i.status="ready"
                 i.save()
-            return Response({"message":"All factors sent to contributed par"})
+            return Response({"message":"All factors sent to contributed part"})
 
 
