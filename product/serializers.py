@@ -17,7 +17,7 @@ class TelevisionListSerializer(HyperlinkedModelSerializer):
 class TelevisionDetailSerilizer(ModelSerializer):
     class Meta:
         model = Television
-        fields = '__all__'
+        fields = ('name' , 'brand' , 'category' , 'price' , 'quantity' , 'image' , 'detail')
 
 
 
@@ -32,7 +32,7 @@ class ComputerListSerializer(HyperlinkedModelSerializer):
 class ComputerDetailserializer(ModelSerializer):
     class Meta:
         model=Computer
-        fields='__all__'
+        fields=('name' , 'brand' , 'category' , 'price' , 'quantity' , 'image' , 'detail')
 
 
 
@@ -46,7 +46,7 @@ class MobileListSerializer(HyperlinkedModelSerializer):
 class MobileDetailSerializer(ModelSerializer):
     class Meta:
         model=Mobile
-        fields='__all__'
+        fields=('name' , 'brand' , 'category' , 'price' , 'quantity' , 'image' , 'detail')
 
 
 
@@ -61,7 +61,7 @@ class BookListSerializer(HyperlinkedModelSerializer):
 class BookDetailSerializer(ModelSerializer):
     class Meta:
         model=Book
-        fields='__all__'
+        fields=('name' , 'brand' , 'category' , 'price' , 'quantity' , 'image' , 'detail')
 
 
 
@@ -75,4 +75,4 @@ class StationeryListSerializer(HyperlinkedModelSerializer):
 class StationeryDetailSerializer(ModelSerializer):
     class Meta:
         model=Stationery
-        fields='__all__'
+        fields=('name' , 'brand' , 'category' , 'price' , 'quantity' , 'image' , 'detail')

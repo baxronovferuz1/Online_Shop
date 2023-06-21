@@ -43,7 +43,7 @@ class FactorDetail(serializers.ModelSerializer):
 
     class Meta:
         model=Shopping_Cart
-        fields=["item",'quantity']
+        fields=("item",'quantity')
 
 
 class CheckOrdersDetail(serializers.ModelSerializer):

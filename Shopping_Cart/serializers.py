@@ -117,4 +117,4 @@ class Pay_for_Item(serializers.ModelSerializer):
     item=ItemDetail(many=True)
     class Meta:
         model=Shopping_Cart
-        fields=("item","quantity")
+        fields=("item","quantity" ,)
